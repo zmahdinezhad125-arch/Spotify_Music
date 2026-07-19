@@ -11,6 +11,7 @@ qt_add_executable(SpotifyMusic
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    Entities/account.h Entities/account.cpp
 )
 
 target_link_libraries(SpotifyMusic
