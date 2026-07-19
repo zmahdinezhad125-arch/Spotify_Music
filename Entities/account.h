@@ -20,7 +20,7 @@ private:
     QString profileImagePath;
 public:
     Account();
-    Account(int id, const QString& fName, const QString& uName, const QString& password, const QString& bio, Role role);
+    Account(int id, const QString& fName, const QString& uName, const QString& password, const QString& bio, Role role, const QString& path);
     void setFullName(const QString& fName);
     void setUserName(const QString& uName);
     void setPassword(const QString& password);
