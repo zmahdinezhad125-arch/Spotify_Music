@@ -31,3 +31,7 @@ void Playlist::setName(const QString& name)
 {
     this->name=name;
 }
+void Playlist::setSongIDs(const QVector<int>& songIDs)
+{
+    this->songIDs=songIDs;
+}

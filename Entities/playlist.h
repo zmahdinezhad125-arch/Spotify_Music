@@ -14,6 +14,7 @@ public:
     Playlist();
     Playlist(int pLID, const QString& name, int lID);
     void setName(const QString& name);
+    void setSongIDs(const QVector<int>& songIDs);
     QString getName()const;
     int getListenerID()const;
     int getPlaylistID()const;
