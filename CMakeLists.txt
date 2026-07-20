@@ -14,6 +14,7 @@ qt_add_executable(SpotifyMusic
     Entities/account.h Entities/account.cpp
     Entities/song.h Entities/song.cpp
     Entities/playlist.h Entities/playlist.cpp
+    Entities/album.h Entities/album.cpp
 )
 
 target_link_libraries(SpotifyMusic
