@@ -1,5 +1,6 @@
 build/
 build-*/
+*.autosave
 *.o
 *.obj
 *.exe
