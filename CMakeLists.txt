@@ -22,6 +22,7 @@ qt_add_executable(SpotifyMusic
     Repositories/AccountRepository.h
     Repositories/artistrepository.h Repositories/artistrepository.cpp
     Repositories/listenerrepository.h Repositories/listenerrepository.cpp
+    Services/authenticationservice.h Services/authenticationservice.cpp
 
 )
 
