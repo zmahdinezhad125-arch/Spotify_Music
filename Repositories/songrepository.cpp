@@ -1,4 +1,5 @@
 #include "songrepository.h"
+#include <algorithm>
 
 SongRepository::SongRepository() {}
 int SongRepository::save(const Song& song)
@@ -71,5 +72,69 @@ QVector<Song> SongRepository::getByArtist(int artistID)
             result.push_back(songs[i]);
         }
     }
+    return result;
+}
+
+QVector<Song> SongRepository:: searchByName(const QString& name)
+{
+    QVector<Song> result;
+    for(const Song& song : songs)
+    {
+        if(song.getName().contains(name, Qt::CaseInsensitive))
+        {
+            result.push_back(song);
+        }
+    }
+    return result;
+}
+
+QVector<Song> SongRepository:: filterByGenre(Genre genre)
+{
+    QVector<Song> result;
+    for(const Song& song : songs)
+    {
+        if(song.getGenre()==genre)
+        {
+            result.push_back(song);
+        }
+    }
+    return result;
+}
+
+QVector<Song> SongRepository:: filterByYear(int year)
+{
+    QVector <Song> result;
+    for(const Song& song : songs)
+    {
+        if(song.getReleaseYear()==year)
+        {
+            result.push_back(song);
+        }
+    }
+    return result;
+}
+QVector<Song> SongRepository :: sortByName()
+{
+    QVector<Song> result =songs;
+    std::sort(
+        result.begin(),
+        result.end(),
+        [](const Song& a, const Song& b)
+        {
+          return a.getName()< b.getName();
+        });
+    return result;
+}
+
+QVector<Song> SongRepository:: sortByYear()
+{
+    QVector<Song> result =songs;
+    std::sort(
+        result.begin(),
+        result.end(),
+        [](const Song& a, const Song& b)
+        {
+            return a.getReleaseYear()< b.getReleaseYear();
+        });
     return result;
 }

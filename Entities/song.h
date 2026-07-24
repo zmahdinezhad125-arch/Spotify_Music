@@ -30,7 +30,8 @@ public:
          Genre genre,
          const QString& audioFilePath,
          int artistID,
-         int albumID = 0);
+         const QString& coverPath,
+         int albumID=0);
     void setName(const QString& name);
     void setReleaseYear(int releaseYear);
     void setGenre(Genre genre);

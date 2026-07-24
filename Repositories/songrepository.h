@@ -23,6 +23,11 @@ public:
     QVector<Song> getByArtist(int artistID);
     QVector<Song> getByPlaylist(int playlistID);
     QVector<Song> getByLikedSongs(int listenerID);
+    QVector<Song> searchByName(const QString& name);
+    QVector<Song> filterByGenre(Genre genre);
+    QVector<Song> filterByYear(int year);
+    QVector<Song> sortByName();
+    QVector<Song> sortByYear();
 };
 
 #endif // SONGREPOSITORY_H

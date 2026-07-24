@@ -7,6 +7,7 @@ Song::Song(int songID,
            Genre genre,
            const QString& audioFilePath,
            int artistID,
+           const QString& coverPath,
            int albumID)
 {
     this->songID=songID;
