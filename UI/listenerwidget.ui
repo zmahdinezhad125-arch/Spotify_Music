@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ListenerWidget</class>
+ <widget class="QWidget" name="ListenerWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>79</x>
+     <y>20</y>
+     <width>231</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="welcomeLabel">
+      <property name="text">
+       <string>welcome</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QListWidget" name="playlistsListWidget"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="createPlaylistButton">
+      <property name="text">
+       <string>Create Playlist</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="deletePlaylistButton">
+      <property name="text">
+       <string>Delete Playlist</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="likeSongButton">
+      <property name="text">
+       <string>Like Song</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="searchSongButton">
+      <property name="text">
+       <string>Search Song</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

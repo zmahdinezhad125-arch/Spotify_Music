@@ -1,11 +1,17 @@
 #include "loginwidget.h"
 #include "ui_loginwidget.h"
 
+#include "artistwidget.h"
+#include "listenerwidget.h"
+
 #include <QMessageBox>
-LoginWidget::LoginWidget(AuthenticationService* authService, QWidget *parent)
+
+LoginWidget::LoginWidget(AuthenticationService* authService, ArtistService* artistService, ListenerService* listenerService, QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::LoginWidget)
     , authenticationService(authService)
+    , artistService(artistService)
+    , listenerService(listenerService)
 {
     ui->setupUi(this);
     connect(ui->loginButton, &QPushButton::clicked, this, &LoginWidget::onLoginClicked);
@@ -24,8 +30,19 @@ void LoginWidget::onLoginClicked()
     auto account = authenticationService->login(username, password);
     if(account.has_value())
     {
-        QMessageBox::information(this, "Success", "Login successful");
-    }
+        if(account->getRole()==Role::Artist)
+
+        {
+            ArtistWidget* artistWidget = new ArtistWidget(*account, artistService);
+            artistWidget->show();
+            this->close();
+        }
+        else
+        {
+            ListenerWidget* listenerWidget = new ListenerWidget(*account, listenerService);
+            listenerWidget->show();
+            this->close();
+        }    }
     else
     {
         QMessageBox::warning(this, "Error", "Wrong username or password");

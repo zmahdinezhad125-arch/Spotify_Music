@@ -7,9 +7,15 @@ MainWindow::MainWindow(QWidget *parent)
     , authenticationService(
           artistRepository,
           listenerRepository)
+    , artistService(
+        albumRepository,
+        songRepository)
+    , listenerService(
+          playlistRepository,
+          songRepository)
 {
     ui->setupUi(this);
-    loginWidget =new LoginWidget(&authenticationService, this);
+    loginWidget =new LoginWidget(&authenticationService, &artistService, &listenerService, this);
     setCentralWidget(loginWidget);
 }
 
