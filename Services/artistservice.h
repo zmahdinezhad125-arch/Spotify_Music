@@ -26,6 +26,8 @@ public:
     bool deleteAlbum(int albumID);
 
     bool deleteSong(int songID);
+
+    QVector<Album> getAlbums(int artistID);
 };
 
 #endif // ARTISTSERVICE_H

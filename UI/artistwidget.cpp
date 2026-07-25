@@ -12,6 +12,7 @@ ArtistWidget::ArtistWidget(const Account& account, ArtistService* artistService,
 {
     ui->setupUi(this);
     ui->welcomeLabel->setText("Welcome " + account.getFullName());
+    refreshAlbums();
     connect(ui->createAlbumButton, &QPushButton::clicked, this, &ArtistWidget::onCreateAlbumClicked);
 }
 
@@ -19,6 +20,7 @@ ArtistWidget::~ArtistWidget()
 {
     delete ui;
 }
+
 
 void ArtistWidget::onCreateAlbumClicked()
 {
@@ -30,9 +32,20 @@ void ArtistWidget::onCreateAlbumClicked()
     if(result)
     {
         QMessageBox::information(this, "Success", "Album created successfully");
+        refreshAlbums();
     }
     else
     {
         QMessageBox::warning(this, "Error", "Album creation failed");
+    }
+}
+
+void ArtistWidget::refreshAlbums()
+{
+    ui->albumsListWidget->clear();
+    QVector<Album> albums = artistService->getAlbums(account.getId());
+    for(const Album& album : albums)
+    {
+        ui->albumsListWidget->addItem(album.getName());
     }
 }

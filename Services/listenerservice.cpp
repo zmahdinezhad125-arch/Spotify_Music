@@ -111,3 +111,9 @@ bool ListenerService:: unlikeSong(int listenerID, int songID)
     }
     return false;
 }
+
+QVector<Playlist> ListenerService::getPlaylists(int listenerID)
+{
+    return playlistRepository.playlists(
+        listenerID);
+}

@@ -22,6 +22,7 @@ private:
     Ui::ArtistWidget *ui;
     Account account;
     ArtistService* artistService;
+    void refreshAlbums();
 private slots:
     void onCreateAlbumClicked();
 };

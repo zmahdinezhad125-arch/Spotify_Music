@@ -18,7 +18,12 @@ public:
     ~ListenerWidget();
 
 private:
-    Ui::ListenerWidget *ui;    Account account;
+    Ui::ListenerWidget *ui;
+    ListenerService* listenerService;
+    Account account;
+    void refreshPlaylists();
+private slots:
+    void onCreatePlaylistClicked();
 };
 
 #endif // LISTENERWIDGET_H

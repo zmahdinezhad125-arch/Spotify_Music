@@ -26,6 +26,8 @@ public:
     bool likeSong(int listenerID, int songID);
 
     bool unlikeSong(int listenerID, int songID);
+
+    QVector<Playlist> getPlaylists(int listenerID);
 };
 
 #endif // LISTENERSERVICE_H

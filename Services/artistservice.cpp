@@ -64,3 +64,9 @@ bool ArtistService::deleteSong(int songID)
 {
     return songRepository.remove(songID);
 }
+
+QVector<Album> ArtistService::getAlbums(
+    int artistID)
+{
+    return albumRepository.albums(artistID);
+}
