@@ -26,6 +26,8 @@ qt_add_executable(SpotifyMusic
     Services/artistservice.h Services/artistservice.cpp
     Services/accountservice.h Services/accountservice.cpp
     Services/listenerservice.h Services/listenerservice.cpp
+    UI/loginwidget.h UI/loginwidget.cpp UI/loginwidget.ui
+    UI/registerwidget.h UI/registerwidget.cpp UI/registerwidget.ui
 
 )
 

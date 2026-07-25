@@ -3,6 +3,11 @@
 
 #include <QMainWindow>
 
+#include "Repositories/artistrepository.h"
+#include "Repositories/listenerrepository.h"
+#include "Services/authenticationservice.h"
+#include "UI/loginwidget.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -19,5 +24,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    ArtistRepository artistRepository;
+    ListenerRepository listenerRepository;
+    AuthenticationService authenticationService;
+    LoginWidget* loginWidget;
 };
 #endif // MAINWINDOW_H
