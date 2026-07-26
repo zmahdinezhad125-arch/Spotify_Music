@@ -85,7 +85,7 @@
           <item>
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>All Songs</string>
+             <string>Songs</string>
             </property>
            </widget>
           </item>
@@ -101,7 +101,7 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>Your Playlists</string>
+           <string>Playlists</string>
           </property>
          </widget>
         </item>
@@ -139,7 +139,7 @@
            <x>10</x>
            <y>20</y>
            <width>221</width>
-           <height>121</height>
+           <height>151</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -224,13 +224,6 @@
        <widget class="QPushButton" name="likeSongButton">
         <property name="text">
          <string>Like Song</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="searchSongButton">
-        <property name="text">
-         <string>Search Song</string>
         </property>
        </widget>
       </item>

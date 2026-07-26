@@ -31,7 +31,21 @@
      </widget>
     </item>
     <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string> Albums</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QListWidget" name="albumsListWidget"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Songs</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QListWidget" name="songsListWidget"/>
@@ -50,20 +64,6 @@
      <widget class="QPushButton" name="createAlbumButton">
       <property name="text">
        <string>Create Album</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="deleteSongButton">
-      <property name="text">
-       <string>Delete Song</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="deleteAlbumButton">
-      <property name="text">
-       <string>Delete Album</string>
       </property>
      </widget>
     </item>
