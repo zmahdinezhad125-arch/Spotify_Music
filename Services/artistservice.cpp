@@ -75,3 +75,24 @@ QVector<Song> ArtistService::getSongs(int artistID)
 {
     return songRepository.getByArtist(artistID);
 }
+QVector<Song> ArtistService::getSongsByAlbum(int albumID)
+{
+    return songRepository.getByAlbum(albumID);
+}
+
+QVector<Song> ArtistService::getSingles(int artistID)
+{
+    QVector<Song> result;
+
+    QVector<Song> songs = songRepository.getByArtist(artistID);
+
+    for(const Song& song : songs)
+    {
+        if(song.getAlbumID() == 0)
+        {
+            result.push_back(song);
+        }
+    }
+
+    return result;
+}

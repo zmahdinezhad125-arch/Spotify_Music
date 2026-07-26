@@ -26,13 +26,21 @@ void RegisterWidget::onRegisterClicked()
     QString biography = ui->biographyTextEdit->toPlainText();
 
     bool success = false;
-    if(role=="Artist")
+    try
     {
-        success = authenticationService->registerArtist(fullName, username, password, biography);
+        if(role=="Artist")
+        {
+            success = authenticationService->registerArtist(fullName, username, password, biography);
+        }
+        else
+        {
+            success = authenticationService->registerListener(fullName, username, password, biography);
+        }
     }
-    else
+    catch (const std::exception& e)
     {
-        success = authenticationService->registerListener(fullName, username, password, biography);
+        QMessageBox::warning(this, "Error", e.what());
+        return;
     }
     if(success)
     {

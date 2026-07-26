@@ -1,5 +1,5 @@
 #include "listenerservice.h"
-
+#include <stdexcept>
 int ListenerService:: nextPlaylistID = 1;
 ListenerService:: ListenerService(PlaylistRepository& playlistRepository, SongRepository& songRepository)
     : playlistRepository(playlistRepository), songRepository(songRepository)
@@ -9,6 +9,10 @@ ListenerService:: ListenerService(PlaylistRepository& playlistRepository, SongRe
 
 bool ListenerService::createPlaylist(const QString& name, int listenerID)
 {
+    if(name.trimmed().isEmpty())
+    {
+        throw std::runtime_error("Playlist name cannot be empty");
+    }
     Playlist playlist(nextPlaylistID++, name, listenerID);
     playlistRepository.save(playlist);
     return true;

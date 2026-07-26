@@ -26,7 +26,8 @@ private:
     void refreshSongs();
 private slots:
     void onCreateAlbumClicked();
-     void onCreateSongClicked();
+    void onCreateSongClicked();
+    void onAlbumSelected();
 signals:
      void logoutRequested();
 };

@@ -9,9 +9,26 @@ AuthenticationService::AuthenticationService(ArtistRepository& artistRepository,
 
 bool AuthenticationService::registerArtist(const QString& fullName, const QString& userName, const QString& password, const QString& biography)
 {
+    if(fullName.trimmed().isEmpty())
+    {
+        throw std::runtime_error(
+            "Full name is empty");
+    }
+
+    if(userName.trimmed().isEmpty())
+    {
+        throw std::runtime_error(
+            "Username is empty");
+    }
+
+    if(password.trimmed().isEmpty())
+    {
+        throw std::runtime_error(
+            "Password is empty");
+    }
     if(artistRepository.searchByUserName(userName).has_value() || listenerRepository.searchByUserName(userName).has_value())
     {
-        return false;
+        throw std::runtime_error("Username already exists");
     }
     Account newArtist(nextAccountID++, fullName, userName, password, biography, Role::Artist, "");
     artistRepository.save(newArtist);
@@ -20,9 +37,26 @@ bool AuthenticationService::registerArtist(const QString& fullName, const QStrin
 
 bool AuthenticationService::registerListener(const QString& fullName, const QString& userName, const QString& password, const QString& biography)
 {
+    if(fullName.trimmed().isEmpty())
+    {
+        throw std::runtime_error(
+            "Full name is empty");
+    }
+
+    if(userName.trimmed().isEmpty())
+    {
+        throw std::runtime_error(
+            "Username is empty");
+    }
+
+    if(password.trimmed().isEmpty())
+    {
+        throw std::runtime_error(
+            "Password is empty");
+    }
     if(artistRepository.searchByUserName(userName).has_value() || listenerRepository.searchByUserName(userName).has_value())
     {
-        return false;
+        throw std::runtime_error("Username already exists");
     }
     Account newListener(nextAccountID++, fullName, userName, password, biography, Role::Listener, "");
     listenerRepository.save(newListener);

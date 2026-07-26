@@ -30,6 +30,10 @@ public:
     QVector<Album> getAlbums(int artistID);
 
     QVector<Song> getSongs(int artistID);
+
+    QVector<Song> getSongsByAlbum(int albumID);
+
+    QVector<Song> getSingles(int artistID);
 };
 
 #endif // ARTISTSERVICE_H

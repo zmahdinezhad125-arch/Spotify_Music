@@ -65,19 +65,30 @@ void ListenerWidget::onCreatePlaylistClicked()
 {
     bool ok;
     QString playlistName = QInputDialog::getText(this, "Create Playlist", "Playlist Name:", QLineEdit::Normal, "", &ok);
-    if(!ok || playlistName.trimmed().isEmpty())
+    if(!ok)
     {
         return;
     }
-    bool result = listenerService->createPlaylist(playlistName, account.getId());
-    if(result)
+
+    try
     {
-        QMessageBox::information(this, "Success", "Playlist created successfully");
-        refreshPlaylists();
+        bool result = listenerService->createPlaylist(playlistName, account.getId());
+        if(result)
+        {
+            QMessageBox::information(this, "Success", "Playlist created successfully");
+            refreshPlaylists();
+        }
+        else
+        {
+            QMessageBox::warning(this, "Error", "Playlist creation failed");
+        }
     }
-    else
+    catch (const std::exception& e)
     {
-        QMessageBox::warning(this, "Error", "Playlist creation failed");
+        QMessageBox::warning(
+            this,
+            "Error",
+            e.what());
     }
 }
 
