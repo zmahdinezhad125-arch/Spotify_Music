@@ -138,3 +138,18 @@ QVector<Song> SongRepository:: sortByYear()
         });
     return result;
 }
+
+QVector<Song> SongRepository::getByPlaylist(const Playlist& playlist)
+{
+    QVector<Song> result;
+    QVector<int> ids = playlist.getSongIDs();
+    for(int songID : ids)
+    {
+        auto song = search(songID);
+        if(song.has_value())
+        {
+            result.push_back(*song);
+        }
+    }
+    return result;
+}

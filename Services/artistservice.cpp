@@ -70,3 +70,8 @@ QVector<Album> ArtistService::getAlbums(
 {
     return albumRepository.albums(artistID);
 }
+
+QVector<Song> ArtistService::getSongs(int artistID)
+{
+    return songRepository.getByArtist(artistID);
+}

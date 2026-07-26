@@ -117,3 +117,35 @@ QVector<Playlist> ListenerService::getPlaylists(int listenerID)
     return playlistRepository.playlists(
         listenerID);
 }
+
+QVector<Song> ListenerService::getSongs()
+{
+    return songRepository.sortByName();
+}
+
+QVector<Song> ListenerService::getPlaylistSongs(int playlistID)
+{
+    auto playlist = playlistRepository.search(playlistID);
+    if(!playlist.has_value())
+    {
+        return {};
+    }
+    return songRepository.getByPlaylist(*playlist);
+}
+
+QVector<Song> ListenerService::searchSongs(const QString& name)
+{
+    return songRepository.searchByName(name);
+}
+
+QVector<Song> ListenerService::filterSongsByGenre(
+    Genre genre)
+{
+    return songRepository.filterByGenre(genre);
+}
+
+QVector<Song> ListenerService::filterSongsByYear(
+    int year)
+{
+    return songRepository.filterByYear(year);
+}

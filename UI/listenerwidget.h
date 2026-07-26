@@ -22,8 +22,18 @@ private:
     ListenerService* listenerService;
     Account account;
     void refreshPlaylists();
+    void refreshSongs();
 private slots:
     void onCreatePlaylistClicked();
+    void onLikeSongClicked();
+    void onDeletePlaylistClicked();
+    void onAddSongToPlaylistClicked();
+    void onPlaylistSelected();
+    void onRemoveSongFromPlaylistClicked();
+    void onSearchSongClicked();
+    void onApplyFilterClicked();
+signals:
+    void logoutRequested();
 };
 
 #endif // LISTENERWIDGET_H

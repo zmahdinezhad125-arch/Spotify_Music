@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>408</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>50</x>
      <y>20</y>
      <width>291</width>
-     <height>271</height>
+     <height>379</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -32,6 +32,9 @@
     </item>
     <item>
      <widget class="QListWidget" name="albumsListWidget"/>
+    </item>
+    <item>
+     <widget class="QListWidget" name="songsListWidget"/>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2"/>
@@ -57,10 +60,17 @@
       </property>
      </widget>
     </item>
-    <item alignment="Qt::AlignmentFlag::AlignVCenter">
+    <item>
      <widget class="QPushButton" name="deleteAlbumButton">
       <property name="text">
        <string>Delete Album</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="logoutButton">
+      <property name="text">
+       <string>Logout</string>
       </property>
      </widget>
     </item>

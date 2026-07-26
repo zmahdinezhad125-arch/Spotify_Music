@@ -13,8 +13,15 @@ ArtistWidget::ArtistWidget(const Account& account, ArtistService* artistService,
     ui->setupUi(this);
     ui->welcomeLabel->setText("Welcome " + account.getFullName());
     refreshAlbums();
+    refreshSongs();
     connect(ui->createAlbumButton, &QPushButton::clicked, this, &ArtistWidget::onCreateAlbumClicked);
     connect(ui->createSongButton, &QPushButton::clicked, this, &ArtistWidget::onCreateSongClicked);
+    connect(ui->logoutButton, &QPushButton::clicked, this,
+            [this]()
+            {
+                emit logoutRequested();
+                this->close();
+    });
 }
 
 ArtistWidget::~ArtistWidget()
@@ -56,7 +63,7 @@ void ArtistWidget:: onCreateSongClicked()
     bool ok;
     QString songName = QInputDialog::getText(this, "Create Song", "Song \
 Name:", QLineEdit::Normal, "", &ok);
-    int year = QInputDialog::getInt(this, "REease Year", "Year:",2026, 1900, 2010, 1, &ok);
+    int year = QInputDialog::getInt(this, "REease Year", "Year:",2026, 1900, 2026, 1, &ok);
     QStringList genres = {"Pop", "Rock", "Classical", "Jazz", "Rap", "Traditional"};
     QString selectedGenre = QInputDialog::getItem(this, "Genre", "Select Genre:", genres, 0, false, &ok);
 
@@ -79,9 +86,20 @@ Name:", QLineEdit::Normal, "", &ok);
     if(result)
     {
         QMessageBox::information(this, "Success", "Song created successfully");
+        refreshSongs();
     }
     else
     {
         QMessageBox::warning(this, "Error", "Song creation failed");
+    }
+}
+
+void ArtistWidget::refreshSongs()
+{
+    ui->songsListWidget->clear();
+    QVector<Song> songs =artistService->getSongs(account.getId());
+    for(const Song& song : songs)
+    {
+        ui->songsListWidget->addItem(song.getName());
     }
 }

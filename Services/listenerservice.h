@@ -28,6 +28,16 @@ public:
     bool unlikeSong(int listenerID, int songID);
 
     QVector<Playlist> getPlaylists(int listenerID);
+
+    QVector<Song> getSongs();
+
+    QVector<Song> getPlaylistSongs(int playlistID);
+
+    QVector<Song> searchSongs(const QString& name);
+
+    QVector<Song> filterSongsByGenre(Genre genre);
+
+    QVector<Song> filterSongsByYear(int year);
 };
 
 #endif // LISTENERSERVICE_H

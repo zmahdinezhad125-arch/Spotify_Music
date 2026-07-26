@@ -84,3 +84,4 @@ QVector<Playlist> PlaylistRepository::playlists(int listenerID)
     }
     return result;
 }
+

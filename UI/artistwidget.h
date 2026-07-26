@@ -23,9 +23,12 @@ private:
     Account account;
     ArtistService* artistService;
     void refreshAlbums();
+    void refreshSongs();
 private slots:
     void onCreateAlbumClicked();
      void onCreateSongClicked();
+signals:
+     void logoutRequested();
 };
 
 #endif // ARTISTWIDGET_H

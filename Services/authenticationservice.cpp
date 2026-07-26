@@ -1,5 +1,5 @@
 #include "authenticationservice.h"
-
+#include <stdexcept>
 int AuthenticationService::nextAccountID = 1;
 
 AuthenticationService::AuthenticationService(ArtistRepository& artistRepository, ListenerRepository& listenerRepository)
@@ -31,6 +31,14 @@ bool AuthenticationService::registerListener(const QString& fullName, const QStr
 
 std::optional<Account> AuthenticationService::login(const QString& userName, const QString& password)
 {
+    if(userName.trimmed().isEmpty())
+    {
+        throw std::runtime_error("Username is empty");
+    }
+    if(password.trimmed().isEmpty())
+    {
+        throw std::runtime_error("Password is empty");
+    }
     auto artist= artistRepository.searchByUserName(userName);
     if(artist.has_value())
     {

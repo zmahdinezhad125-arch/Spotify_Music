@@ -6,60 +6,242 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1034</width>
+    <height>647</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>79</x>
-     <y>20</y>
-     <width>231</width>
-     <height>251</height>
+     <x>20</x>
+     <y>90</y>
+     <width>771</width>
+     <height>521</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QLabel" name="welcomeLabel">
-      <property name="text">
-       <string>welcome</string>
-      </property>
-     </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="welcomeLabel">
+        <property name="text">
+         <string>welcome</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="createPlaylistButton">
+        <property name="text">
+         <string>Create Playlist</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="addSongToPlaylistButton">
+        <property name="text">
+         <string>Add Song To Playlist</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeSongFromPlaylistButton">
+        <property name="text">
+         <string>Remove Song From Playlist</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deletePlaylistButton">
+        <property name="text">
+         <string>Delete Playlist</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLineEdit" name="searchLineEdit"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="searchButton">
+          <property name="text">
+           <string>Search</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
-    <item>
-     <widget class="QListWidget" name="playlistsListWidget"/>
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>All Songs</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="songsListWidget"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_10">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Your Playlists</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="playlistsListWidget"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
-    <item>
-     <widget class="QPushButton" name="createPlaylistButton">
-      <property name="text">
-       <string>Create Playlist</string>
-      </property>
-     </widget>
+    <item row="6" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_11">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Selected Playlist Songs</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="playlistSongsListWidget"/>
+      </item>
+     </layout>
     </item>
-    <item>
-     <widget class="QPushButton" name="deletePlaylistButton">
-      <property name="text">
-       <string>Delete Playlist</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="likeSongButton">
-      <property name="text">
-       <string>Like Song</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="searchSongButton">
-      <property name="text">
-       <string>Search Song</string>
-      </property>
-     </widget>
+    <item row="6" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QGroupBox" name="filterGroupBox">
+        <property name="title">
+         <string>Filter Songs</string>
+        </property>
+        <widget class="QWidget" name="verticalLayoutWidget_6">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>221</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <widget class="QComboBox" name="filterTypeComboBox">
+            <property name="currentText">
+             <string>All</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>All</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Genre</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Year</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="genreComboBox">
+            <item>
+             <property name="text">
+              <string>Pop</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Rock</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Classical</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Jazz</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Rap</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Traditional</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="yearSpinBox">
+            <property name="minimum">
+             <number>1900</number>
+            </property>
+            <property name="maximum">
+             <number>2026</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="applyFilterButton">
+            <property name="text">
+             <string>Filter</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="likeSongButton">
+        <property name="text">
+         <string>Like Song</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="searchSongButton">
+        <property name="text">
+         <string>Search Song</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="logoutButton">
+        <property name="text">
+         <string>Logout</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
