@@ -25,6 +25,7 @@ private:
     void refreshAlbums();
 private slots:
     void onCreateAlbumClicked();
+     void onCreateSongClicked();
 };
 
 #endif // ARTISTWIDGET_H
